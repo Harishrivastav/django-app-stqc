@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="GET">
+
+<input type="text"
+name="search"
+placeholder="Search Job No or SRF"
+class="form-control">
+
+<button class="btn btn-primary mt-2">
+Search
+</button>
+
+</form>
+
+<h2>Assigned Testing Jobs</h2>
+
+<table class="table table-bordered">
+
+<tr>
+
+<th>SRF</th>
+<th>Job No</th>
+<th>Received Date</th>
+<th>Job Details</th>
+<th>Status</th>
+<th>Progress</th>
+<th>Update</th>
+
+</tr>
+
+{% for job in jobs %}
+
+<tr>
+
+<td>{{job.SRF}}</td>
+<td>{{job.job_no}}</td>
+<td>{{job.received_date}}</td>
+<td>{{job.job_details}}</td>
+<td>{{job.status}}</td>
+<td>{{job.progress}}</td>
+
+<td>
+
+<a href="/update/{{job.id}}"
+class="btn btn-primary">
+
+Update
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

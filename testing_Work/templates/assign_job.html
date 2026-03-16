@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Create Testing Job</h2>
+
+<div class="card">
+
+<div class="card-body">
+
+<form method="POST">
+
+{% csrf_token %}
+
+{{form.as_p}}
+
+<button class="btn btn-success">
+
+Assign Job
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+{% endblock %}

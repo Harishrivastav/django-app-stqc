@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+<div class="col-md-5">
+
+<div class="card shadow">
+
+<div class="card-header bg-dark text-white text-center">
+
+<h4>STQC Testing Portal Login</h4>
+
+</div>
+
+<div class="card-body">
+
+{% if error %}
+<div class="alert alert-danger">
+{{error}}
+</div>
+{% endif %}
+
+<form method="POST">
+
+{% csrf_token %}
+
+<div class="mb-3">
+
+<label class="form-label">Username</label>
+
+<input
+type="text"
+name="username"
+class="form-control"
+required>
+
+</div>
+
+<div class="mb-3">
+
+<label class="form-label">Password</label>
+
+<input
+type="password"
+name="password"
+class="form-control"
+required>
+
+</div>
+
+<div class="d-grid gap-2">
+
+<button name="role" value="engineer" class="btn btn-primary">
+
+Login as Testing Engineer
+
+</button>
+
+<button name="role" value="admin" class="btn btn-dark">
+
+Login as Admin
+
+</button>
+
+</div>
+
+</form>
+
+<hr>
+
+<p class="text-center">
+
+New Engineer?
+
+<a href="/register/">Register Here</a>
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}

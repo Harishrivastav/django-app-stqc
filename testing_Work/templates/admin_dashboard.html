@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Admin Dashboard</h2>
+<canvas id="jobChart"></canvas>
+
+<script>
+
+const ctx = document.getElementById('jobChart');
+
+new Chart(ctx, {
+
+type: 'pie',
+
+data: {
+
+labels: ['Completed','Pending','Testing'],
+
+datasets: [{
+
+data: [
+
+{{completed}},
+{{pending}},
+{{testing}}
+
+]
+
+}]
+
+}
+
+});
+
+</script>
+<div class="row">
+<a href="/assign_job/" class="btn btn-primary">
+
+Assign New Testing Job
+
+</a>
+<div class="col-md-3">
+
+<div class="card bg-primary text-white">
+<div class="card-body">
+Total Jobs
+<h3>{{total}}</h3>
+</div>
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card bg-success text-white">
+<div class="card-body">
+Completed Jobs
+<h3>{{completed}}</h3>
+</div>
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card bg-warning text-white">
+<div class="card-body">
+Pending Jobs
+<h3>{{pending}}</h3>
+</div>
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card bg-dark text-white">
+<div class="card-body">
+Total Revenue
+<h3>{{revenue.amount__sum}}</h3>
+</div>
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}
